@@ -7,16 +7,16 @@ public class WeatherProvider{
 
 	private WeatherProvider(){};
 
-	public WeatherProvider getInstance(){
+	public static WeatherProvider getInstance(){
 		return provider;
 	}
 
 	public void changeWeather(){
-		++round;
+		round += 7;
 	}
 
 	public String getCurrentWeather(Coordinates p_coordinate){
-		int index = ((p_coordinate.getLongitude() + round) * (p_coordinate.getLatitude() + round) * (p_coordinate.getHeight()+ round)) % 4;
+		int index = (p_coordinate.getLongitude() + p_coordinate.getLatitude() + p_coordinate.getHeight()+ round) % 4;
 		return weather[index]; 
 	}
 }

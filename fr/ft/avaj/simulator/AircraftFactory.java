@@ -1,12 +1,12 @@
-package fr.ft.avaj.simulator
+package fr.ft.avaj.simulator;
 
 public class AircraftFactory{
 	private static int nextId = 0;
-	private static AircraftFactory factory = new AircraftFactory;
+	private static AircraftFactory factory = new AircraftFactory();
 
-	private AircraftFactory();
+	private AircraftFactory(){};
 
-	public AircraftFactory getInstance(){
+	public static AircraftFactory getInstance(){
 		return factory;
 	}
 
@@ -19,15 +19,15 @@ public class AircraftFactory{
 			case "JetPlane":
 				aircraft = new JetPlane(nextId, p_name, p_coordinates);
 				break;
-			case "Balloon":
-				aircraft = mew Balloon(nextId, p_name, p_coordinates);
+			case "Baloon":
+				aircraft = new Baloon(nextId, p_name, p_coordinates);
 				break;
 			default:
-				throw new SimulatorException("Unidentified Flying Object detected");
+				throw new SimulatorException("Unidentified Flying Object detected: "+"p_type");
 
 		}
 		++nextId;
-		return aircraft
+		return aircraft;
 	}
 
 }

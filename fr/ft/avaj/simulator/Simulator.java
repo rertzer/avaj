@@ -1,17 +1,26 @@
-package fr.ft.avaj.simulator
+package fr.ft.avaj.simulator;
 
-public class Simulator(){
-	private int times;
-	private WeatherTower weathertower = new WeatherTower;
+public class Simulator{
+	private int turns;
+	private WeatherTower weatherTower = new WeatherTower();
 	private AircraftFactory aircraftFactory = AircraftFactory.getInstance();
 	private WeatherProvider weatherProvider = WeatherProvider.getInstance(); 
 
-	public Simulator(int p_times){
-		times = p_times;
+	public void setTurns(int p_turns){
+
+		turns = p_turns;
 	}
 
-	public addAircraft(String p_type, String p_name, Coordinates coordinates) {
-		Flyable aircraft = AircraftFactory.newAircraft(items[0], items[1], coordinates);
-		aircraft.registerTower(weathertower);
+	public void addAircraft(String type, String name, int[] coord) throws SimulatorException {
+		Coordinates coordinates = new Coordinates(coord[0], coord[1], coord[2]);
+		Flyable aircraft = aircraftFactory.newAircraft(type, name, coordinates);
+		aircraft.registerTower(weatherTower);
+	}
+
+	public void run() throws SimulatorException{
+		for (int i = 0; i < turns; ++i){
+			weatherTower.changeWeather();
+			weatherTower.conditionChanged();
+		}
 	}
 }

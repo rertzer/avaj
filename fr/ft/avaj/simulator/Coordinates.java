@@ -1,12 +1,12 @@
 package fr.ft.avaj.simulator;
 
-public class Coordinates{
+class Coordinates{
 
 	private int longitude;
 	private int latitude;
 	private int height;
 
-	default Coordinates(int p_longitude, int p_latitude, int p_height){
+	Coordinates(int p_longitude, int p_latitude, int p_height){
 		if (p_longitude > 0){
 			longitude = p_longitude;
 		}
