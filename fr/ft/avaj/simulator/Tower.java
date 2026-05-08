@@ -18,7 +18,7 @@ public class Tower{
 	}
 
 	protected void conditionChanged() throws SimulatorException{
-		for (Flyable flyable: observers){
+		for (Flyable flyable: new ArrayList<>(observers)){
 			flyable.updateConditions();
 		}
 	}
