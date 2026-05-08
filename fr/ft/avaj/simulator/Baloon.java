@@ -2,19 +2,19 @@ package fr.ft.avaj.simulator;
 
 public class Baloon extends Aircraft{
 
-	public Baloon(long p_id, String p_name, Coordinates p_coordinate){
-		super(p_id, p_name, p_coordinate);
+	public Baloon(long p_id, String p_name, Coordinates p_coordinates){
+		super(p_id, p_name, p_coordinates);
 		fullName = "Baloon#"+p_name+"("+p_id+")";
 	}
 
 	public void updateConditions() throws SimulatorException{
 		String message;
-		String oldWeather = weather;
 		String weather = weatherTower.getWeather(coordinates);
 
 		int longitude = coordinates.getLongitude();
 		int latitude = coordinates.getLatitude();
 		int height = coordinates.getHeight();
+		Printer printer = Printer.getInstance();
 
 		switch (weather){
 			case "SUN":
@@ -39,11 +39,9 @@ public class Baloon extends Aircraft{
 
 		} 
 		coordinates = new Coordinates(longitude, latitude, height);
-		if (!weather.equals(oldWeather)){
-			System.out.println(fullName+": "+message);
-		}
+		printer.print(fullName+": "+message);
 		if (coordinates.getHeight() == 0){
-			System.out.println(fullName+": Frankfurt, we have a nap.");
+			printer.print(fullName+": Frankfurt, we have a nap.");
 			weatherTower.unregister(this);
 		}
 	}

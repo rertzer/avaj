@@ -24,7 +24,9 @@ public class Printer implements AutoCloseable {
 	}
 
 	public void print(String line){
+		// System.out.println(line);
 		out.println(line);
+		out.flush();
 	}
 
 	@Override

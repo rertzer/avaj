@@ -18,9 +18,16 @@ public class Simulator{
 	}
 
 	public void run() throws SimulatorException{
-		for (int i = 0; i < turns; ++i){
-			weatherTower.changeWeather();
-			weatherTower.conditionChanged();
+		try{
+
+			for (int i = 0; i < turns; ++i){
+				weatherTower.changeWeather();
+				weatherTower.conditionChanged();
+			}
 		}
+		finally{
+			Printer.getInstance().close();
+		}
+
 	}
 }

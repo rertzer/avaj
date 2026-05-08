@@ -9,8 +9,9 @@ public class JetPlane extends Aircraft{
 
 	public void updateConditions() throws SimulatorException{
 		String message;
-		String oldWeather = weather;
 		String weather = weatherTower.getWeather(coordinates);
+
+		Printer printer = Printer.getInstance();
 
 		int longitude = coordinates.getLongitude();
 		int latitude = coordinates.getLatitude();
@@ -39,11 +40,9 @@ public class JetPlane extends Aircraft{
 
 		} 
 		coordinates = new Coordinates(longitude, latitude, height);
-		if (!weather.equals(oldWeather)){
-			System.out.println(fullName+": "+message);
-		}
+		printer.print(fullName+": "+message);
 		if (coordinates.getHeight() == 0){
-			System.out.println(fullName+": Frankfurt, we are crashing!");
+			printer.print(fullName+": Frankfurt, we are crashing!");
 			weatherTower.unregister(this);
 		}
 	}
