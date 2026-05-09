@@ -4,7 +4,6 @@ package fr.ft.avaj.simulator;
 public abstract class Flyable{
 	protected WeatherTower weatherTower;
 	protected String weather;
-	protected String fullName;
 
 	public abstract void updateConditions() throws SimulatorException;
 

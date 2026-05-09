@@ -9,12 +9,12 @@ public class Tower{
 
 	public void register(Flyable p_flyable){
 		observers.add(p_flyable);
-		Printer.getInstance().print("Tower says: "+p_flyable.fullName+" registered to weather tower.");
+		Printer.getInstance().print("Tower says: " + p_flyable.toString() + " registered to weather tower.");
 	}
 
 	public void unregister(Flyable p_flyable){
 		observers.remove(p_flyable);
-		Printer.getInstance().print("Tower says: "+p_flyable.fullName+" unregistered from weather tower.");
+		Printer.getInstance().print("Tower says: " + p_flyable.toString() + " unregistered from weather tower.");
 	}
 
 	protected void conditionChanged() throws SimulatorException{
