@@ -23,11 +23,10 @@ public class AircraftFactory{
 				aircraft = new Baloon(nextId, p_name, p_coordinates);
 				break;
 			default:
-				throw new SimulatorException("Unidentified Flying Object detected: "+"p_type");
+				throw new SimulatorException("Unidentified Flying Object detected: "+p_type);
 
 		}
 		++nextId;
 		return aircraft;
 	}
-
 }

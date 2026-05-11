@@ -8,7 +8,7 @@ public class Helicopter extends Aircraft{
 
 	@Override
 	public String toString(){
-		return "Helicopter#"+name+"("+id+")";
+		return "Helicopter#" + name + "(" + id + ")";
 	}
 
 	public void updateConditions() throws SimulatorException {

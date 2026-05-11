@@ -4,12 +4,11 @@ public class Baloon extends Aircraft{
 
 	public Baloon(long p_id, String p_name, Coordinates p_coordinates){
 		super(p_id, p_name, p_coordinates);
-		
 	}
 
 	@Override
 	public String toString(){
-		return "Baloon#"+name+"("+id+")";
+		return "Baloon#" + name + "(" + id + ")";
 	}
 
 	public void updateConditions() throws SimulatorException{
@@ -44,9 +43,10 @@ public class Baloon extends Aircraft{
 
 		} 
 		coordinates = new Coordinates(longitude, latitude, height);
-		printer.print(toString() + ": "+message);
+		printer.print(toString() + ": " + message);
+
 		if (coordinates.getHeight() == 0){
-			printer.print(toString()+": Frankfurt, we have a nap.");
+			printer.print(toString() + ": Frankfurt, we have a nap.");
 			weatherTower.unregister(this);
 		}
 	}

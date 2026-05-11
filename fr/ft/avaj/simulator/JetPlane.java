@@ -8,7 +8,7 @@ public class JetPlane extends Aircraft{
 
 	@Override
 	public String toString(){
-		return "JetPlane#"+name+"("+id+")";
+		return "JetPlane#" + name + "(" + id + ")";
 	}
 
 	public void updateConditions() throws SimulatorException{
@@ -44,7 +44,7 @@ public class JetPlane extends Aircraft{
 
 		} 
 		coordinates = new Coordinates(longitude, latitude, height);
-		printer.print(toString() + ": "+message);
+		printer.print(toString() + ": " + message + coordinates.getHeight());
 		if (coordinates.getHeight() == 0){
 			printer.print(toString() + ": Frankfurt, we are crashing!");
 			weatherTower.unregister(this);

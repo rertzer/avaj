@@ -13,6 +13,7 @@ public class Printer implements AutoCloseable {
             throw new RuntimeException("Cannot create Printer", e);
         }
     }
+
 	private PrintWriter out;
 
 	private Printer() throws IOException {
@@ -24,7 +25,6 @@ public class Printer implements AutoCloseable {
 	}
 
 	public void print(String line){
-		// System.out.println(line);
 		out.println(line);
 		out.flush();
 	}
