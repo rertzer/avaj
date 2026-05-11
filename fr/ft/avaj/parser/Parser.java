@@ -30,12 +30,17 @@ public class Parser {
 	}
 
 	public void addAircraft(String line) throws ParserException, SimulatorException {
+		String[] items = extractItems(line);	
+		int[] coord = extractCoordinates(items);	
+		simulator.addAircraft(items[0], items[1], coord);
+	}
+
+	private String[] extractItems(String line) throws ParserException {
 		String[] items = line.split("\\s+");
 		if (items.length != 5){
 			throw new ParserException("Invalid line: " + line);
 		}
-		int[] coord = extractCoordinates(items);	
-		simulator.addAircraft(items[0], items[1], coord);
+		return items;
 	}
 
 	private int[] extractCoordinates(String[] items) throws ParserException {
