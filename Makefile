@@ -11,6 +11,7 @@ clean:
 	rm -f fr/ft/avaj/main/*.class
 	rm -f fr/ft/avaj/parser/*.class
 	rm -f fr/ft/avaj/simulator/*.class
+	rm -f simulation.txt
 
 
 .PHONY: all run clean

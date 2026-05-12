@@ -19,11 +19,8 @@ public class Main{
 			parser.parse(args[0]);
 			simul.run();
 		}
-		catch(ParserException e){
-			System.out.println("Parsing Error: " + e.getMessage());
-		}
-		catch(SimulatorException e){
-			System.out.println("Simulator Error: " + e.getMessage());
+		catch(ParserException | SimulatorException e){
+			System.out.println("Avaj Error: " + e.getMessage());
 		}
 	}
 }
