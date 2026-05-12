@@ -44,7 +44,7 @@ public class JetPlane extends Aircraft{
 
 		} 
 		coordinates = new Coordinates(longitude, latitude, height);
-		printer.print(toString() + ": " + message + coordinates.getHeight());
+		printer.print(toString() + ": " + message);
 		if (coordinates.getHeight() == 0){
 			printer.print(toString() + ": Frankfurt, we are crashing!");
 			weatherTower.unregister(this);
