@@ -1,5 +1,5 @@
 all: sources
-	podman run --rm -v "${PWD}":/app -w /app eclipse-temurin:17-jdk-jammy javac @sources.txt
+	podman run --rm -v "${PWD}":/app -w /app eclipse-temurin:21-jdk-jammy javac @sources.txt
 
 sources:
 	find * -name "*.java" > sources.txt
